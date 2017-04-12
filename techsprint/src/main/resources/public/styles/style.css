@@ -794,9 +794,9 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #f6a821;
 }
 body {
-  background: #2f323b;
+  background: #e7e7e7;
   font-family: 'Roboto', sans-serif;
-  color: #949ba2;
+  color: #f5f5f5;
 }
 .content {
   margin-top: 60px;
@@ -1072,13 +1072,13 @@ img.image-xl {
   padding: 20px 25px;
   font-weight: 400;
   letter-spacing: 10px;
-  color: #FFFFFF;
+  color: #F7F7F7;
 }
 .navbar-default .navbar-brand {
-  color: #FFFFFF;
+  color: #f7f7f7;
 }
 .navbar-default .navbar-brand:hover {
-  color: #FFFFFF;
+  color: #f7f7f7;
   background-color: #f5a212;
 }
 .navbar-brand span {
@@ -1090,7 +1090,7 @@ img.image-xl {
 }
 .navbar-default {
   border-bottom: none;
-  background-color: #FFFFFF;
+  background-color: #f7f7f7;
   box-shadow: 0px 0px 21px #161616;
 }
 .left-nav-toggle {
@@ -1214,7 +1214,7 @@ img.image-xl {
   background: inherit;
 }
 .luna-nav.nav .nav-category {
-  color: #FFFFFF;
+  color: #f7f7f7;
   margin-top: 10px;
 }
 .luna-nav.nav .sub-nav-icon {
@@ -1754,7 +1754,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #FFFFFF;
+  color: #505050;
 }
 h1,
 .h1,
@@ -2449,7 +2449,7 @@ fieldset[disabled] .form-control {
   opacity: 1;
 }
 .navbar-form .form-control {
-  background-color: #ffffff;
+  background-color: #f7f7f7;
 }
 .has-success .checkbox,
 .has-success .checkbox-inline,
