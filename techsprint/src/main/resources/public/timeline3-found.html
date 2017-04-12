@@ -22,8 +22,9 @@
         padding: 0;
     }
     .timeline-intro {
-        height: 150px;
-        width: 70%;
+        margin: absolute;
+        height: 225px;
+        padding: 50px 0 0 0;
     }
     .penInfo {
         border-left: 2px solid #777;
@@ -50,14 +51,11 @@
     }
     .timeline-value {
         text-align: center;
-        position: absolute;
-        right: 0;
-        top: 0px;
+        top: 50px;
         background-color: #f6a821;
         text-transform: uppercase;
         letter-spacing: 2px;
         padding: 20px;
-        display: inline;
     }
     .timeline-value h1 {
         font-size: 3em;
@@ -103,16 +101,47 @@
 
 
     <meta charset="UTF-8">
+        <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div id="mobile-menu">
+                    <div class="left-nav-toggle">
+                        <a href="#">
+                            <i class="stroke-hamburgermenu"></i>
+                        </a>
+                    </div>
+                </div>
+                <a class="navbar-brand" href="index.html">
+                    LUNA
+                    <span>v.1.3</span>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="left-nav-toggle">
+                    <a href="">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control" placeholder="Search data for analysis" style="width: 175px">
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="versions.html">Versions
+                            <span class="label label-warning pull-right">2</span>
+                        </a>
+                    </li>
+                    <li class=" profil-link">
+                        <a href="login.html">
+                            <span class="profile-address">luna@company.io</span>
+                            <img src="images/profile.jpg" class="img-circle" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="timeline-intro">
-        <h3>
-            Good news! We've found some pension policies you may have forgotten about.
-        </h3>
-        <h3>
-            You'll also be entitled to a State Pension of <b>&#163;122.30</b> per week when you reach 67.
-        </h3>
-        <h3>
-            Because you've given us your LinkedIn details, we've matched your employment and pension history so you can see where your pensions have come from.
-        </h3>
         <div class="timeline-value">
             <h3>Your forecast annual pension income</h3>
             <h1>&#163;11,500</h1>
