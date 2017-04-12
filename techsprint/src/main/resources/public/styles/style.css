@@ -1151,7 +1151,7 @@ img.image-xl {
   margin-left: 10px;
 }
 .profil-link .profile-address {
-  text-transform: lowercase;
+  text-transform: none;
 }
 #mobile-menu {
   display: none;
