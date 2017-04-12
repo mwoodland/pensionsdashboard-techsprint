@@ -1,3 +1,36 @@
+/* GLOBAL */
+
+.hideForNow, .hideNow{
+    display:none;
+}
+
+.companyLogo{
+    background:url("../images/placeholder_logo.jpg");
+    width:120px;
+    height:80px;
+}
+
+.employerName{
+    font-family: 'Roboto', sans-serif;
+    font-size:1.8em;
+    color:#ff0000;
+    display:block;
+}
+
+.pensionName{
+    font-family: 'Roboto', sans-serif;
+    font-size:1.2em;
+    color:#ff0000;
+    display:block;
+}
+
+.pensionType{
+    font-family: 'Roboto', sans-serif;
+    font-size:1.2em;
+    color:#ff0000;
+    display:block;
+}    
+
 .btn:active,
 .btn.active {
   box-shadow: none;
@@ -794,11 +827,12 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #f6a821;
 }
 body {
-  background: #2f323b;
+  background: #fafafa;
   font-family: 'Roboto', sans-serif;
   color: #949ba2;
 }
 .content {
+    background: #fafafa;
   margin-top: 60px;
   margin-left: 200px;
   position: relative;
@@ -2847,4 +2881,19 @@ fieldset[disabled] .form-control {
   border-radius: 4px !important;
   color: #ffffff !important;
   padding: 6px 12px !important;
+}
+
+.indicator{
+    height:50px;
+    width:50px;
+    border-radius: 25px;
+}
+.good{
+    background-color:green;
+}
+.ok{
+    background-color:#FFC200;
+}
+.bad{
+    background-color:red;
 }
