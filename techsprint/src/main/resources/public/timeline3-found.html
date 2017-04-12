@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="vendor/animate.css/animate.css"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="vendor/toastr/toastr.min.css"/>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="styles/pe-icons/pe-icon-7-stroke.css"/>
+    <link rel="stylesheet" href="styles/pe-icons/helper.css"/>
+    <link rel="stylesheet" href="styles/stroke-icons/style.css"/>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+    #timeline-main .col-sm-6 {
+        padding: 50px 0 0 0 ;
+    }
+    .timeline-intro {
+        margin: absolute;
+        height: 225px;
+        padding: 50px 0 0 0;
+    }
+    .penInfo {
+        border-left: 2px solid #777;
+        margin: 0;
+        padding: 50px;
+    }
+    .penInfo:nth-of-type(5),
+    .penInfo:nth-of-type(7) {
+        border-left: 4px solid #777;
+        padding: 20px 50px;
+        margin-left: -2px;
+    }
+    .employInfo {
+        border-right: 2px solid #777;
+        text-align: right;
+        margin: 0;
+        padding: 50px;
+    }
+    .employInfo.lastEmployer {
+        padding: 25px 50px 50px 50px;
+    }
+    .emp-dates {
+        display: inline-block;
+    }
+    .timeline-value {
+        text-align: center;
+        top: 50px;
+        background-color: #f6a821;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 20px;
+    }
+    .timeline-value h1 {
+        font-size: 3em;
+        color: #f7f7f7;
+    }
+    .timeline-value h3 {
+        font-size: 3em;
+        color: #f7f7f7;
+    }
+    .time-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid #777;
+        position: absolute;
+        margin: auto;
+        margin-top: -150px;
+        margin-left: -20px;
+        background: #fff;
+        padding: 7px;
+    }
+    .time-circle:nth-of-type(6),
+    .time-circle:nth-of-type(8) {
+        margin-top: -120px;
+    }
+    .pen-status {
+        font-size: 1.5em;
+        color: #9acd32;
+    }
+    .pen-status.fa-warning {
+        color: #ffa500;
+    }
+    .emp-status {
+        color: #0077b5;
+        margin-right: 20px;
+        font-size: 1.5em;
+    }
+    .pen-val {
+        display:inline-block
+    }
+
+
+    </style>
+
+
+    <meta charset="UTF-8">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div id="mobile-menu">
+                    <div class="left-nav-toggle">
+                        <a href="#">
+                            <i class="stroke-hamburgermenu"></i>
+                        </a>
+                    </div>
+                </div>
+                <a class="navbar-brand" href="index.html">
+                    Home
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="left-nav-toggle">
+                    <a href="">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control" placeholder="Search data for analysis" style="width: 185px">
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="versions.html">Messages
+                            <span class="label label-warning pull-right">3</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="versions.html">Documents
+                            <span class="label label-warning pull-right">2</span>
+                        </a>
+                    </li>
+                    <li class=" profil-link">
+                        <a href="login.html">
+                            <span class="profile-address">Isabella Taylor</span>
+                            <img src="images/profile.jpg" class="img-circle" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="timeline-main">
+        <div class="col-sm-6 employments">
+            <div class="employInfo">
+                <h1>ABC Logistics Ltd</h1>
+                <span class="emp-status fa fa-linkedin-square"></span><h4 class="emp-dates">28&#47;11&#47;2015 - 29&#47;12&#47;2016</h4>
+                <h5>Supply Manager</h5>
+            </div>
+            <div class="employInfo">
+                <h1>HSBC</h1>
+                <span class="emp-status fa fa-linkedin-square"></span><h4 class="emp-dates">22&#47;05&#47;2009 - 30&#47;09&#47;2015</h4>
+                <h5>Accounts Manager</h5>
+            </div>
+            <div class="employInfo">
+                <h1>Tabi Ballet School Ltd</h1>
+                <span class="emp-status fa fa-linkedin-square"></span><h4 class="emp-dates">25&#47;03&#47;2003 - 19&#47;11&#47;2008</h4>
+                <h5>Assistant Supervisor</h5>
+            </div>
+            <div class="employInfo lastEmployer">
+                <h1>Employer DO14</h1>
+                <span class="emp-status fa fa-linkedin-square"></span><h4 class="emp-dates">25&#47;03&#47;2003 - 19&#47;11&#47;2008</h4>
+                <h5>Personal Assistant</h5>
+            </div>
+        </div>
+        <div class="col-sm-6 pensions">
+            <div class="penInfo">
+                <h2 class="pen-val">&#163;903.01</h2>
+                <p class="pen-val"> (latest value)</p>
+                <h4>The People's Pension Scheme</h4>
+                <h5>Status: DC Workplace In Accumulation</h5>
+            </div>
+            <div class="time-circle">
+                <span class="pen-status fa fa-check"></span>
+            </div>
+            <div class="penInfo">
+                <br/>
+                <h2 class="pen-val">&#163;45,000.00</h2>
+                <p class="pen-val"> (latest value)</p>
+                <h4>Willis Towers Watson</h4>
+                <h5>Status: DC Workplace In Accumulation</h5>
+            </div>
+            <div class="time-circle">
+                <span class="pen-status fa fa-check"></span>
+            </div>
+            <div class="penInfo">
+                <!--<h2>&#163;52,728.72</h2>-->
+                <!--<h4>Provider: Prudential</h4>-->
+                <!--<h5>Status: DC Personal In Accumulation</h5>-->
+            </div>
+            <div class="penInfo">
+                <h2 class="pen-val">&#163;4201.00</h2>
+                <p class="pen-val"> (latest value)</p>
+                <h4>Scottish Widows Limited</h4>
+                <h5>Status: DC Workplace In Accumulation</h5>
+            </div>
+            <div class="time-circle">
+                <span class="pen-status fa fa-check"></span>
+            </div>
+            <div class="penInfo">
+                <h2 class="pen-val">&#163;7,292.57</h2>
+                <p class="pen-val"> (per annum)</p>
+                <h4>Aviva Life & Pensions</h4>
+                <h5>Status: DB Deferred (Not Contributing)</h5>
+            </div>
+            <div class="time-circle">
+                <span class="pen-status fa fa-check"></span>
+            </div>
+        </div>
+    </div>
+</head>
+<body>
+
+</body>
+</html>
