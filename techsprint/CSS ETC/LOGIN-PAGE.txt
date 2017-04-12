@@ -1,0 +1,24 @@
+#if(!$mssUtils.isPasAvailable())
+<div class="alert alert-warning">
+<p>#msgText('error.webServicesUnavailable')</p>
+</div>
+#end
+
+<p>#msgText('login.para1')<a href="/home/registration/sign-up.html">#msgText('login.linkText')</a>#msgText('login.para1-1')</p>
+<p>#msgText('login.para2')<a href="/home/registration/activation.html">#msgText('login.activationLinkText')</a>#msgText('login.para2-2')</p>
+<div id="MSSLoginForm" class="top-margin-40">
+  #updateFormBegin('/home/login/confirm.html', '/mss/service/security/login', {'suppressCfm':true})
+  #inputField('username', 'prompt.username', '', {'labelWidth':3, 'inputWidth':7, 'required':true})  
+  #inputField('password', 'prompt.password', '', {'fieldType': 'password', 'labelWidth':3, 'inputWidth':7, 'required': true})
+  <input type="hidden" name="__landingPage" value="$!request.getParameter('landingPage')" />
+  
+  <div id="forgottenPassword" class="col-sm-offset-3 col-sm-7">
+    <p><a href="/home/registration/request-password-hint.html">#msgText('link.forgottenPassword')</a></p>
+  </div>
+  <div id="loginForm1LoginButton" class="form-group">
+    <div class="col-sm-offset-3 col-sm-7 button-group">
+      <button type="submit" class="btn btn-primary">#msgText('button.login')</button>
+    </div>
+  </div>
+  </form>
+</div>

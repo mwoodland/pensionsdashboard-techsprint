@@ -1,0 +1,238 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+  if (dwr.engine._getObject("ContentletAjax") == undefined) {
+    var p;
+    
+    p = {};
+    p._path = '/dwr';
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.lockContent = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'lockContent', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.unlockContent = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'unlockContent', arguments);
+    };
+
+    /**
+     * @param {interface java.util.List} p0 a param
+     * @param {boolean} p1 a param
+     * @param {boolean} p2 a param
+     * @param {boolean} p3 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.saveContent = function(p0, p1, p2, p3, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'saveContent', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {int} p5 a param
+     * @param {int} p6 a param
+     * @param {class java.lang.String} p7 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchContentlet = function(p0, p1, p2, p3, p4, p5, p6, p7, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchContentlet', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {boolean} p5 a param
+     * @param {boolean} p6 a param
+     * @param {int} p7 a param
+     * @param {class java.lang.String} p8 a param
+     * @param {class java.lang.String} p9 a param
+     * @param {class java.lang.String} p10 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchContentlets = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchContentlets', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {int} p5 a param
+     * @param {class java.lang.String} p6 a param
+     * @param {class java.lang.String} p7 a param
+     * @param {class java.lang.String} p8 a param
+     * @param {boolean} p9 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchContentlets = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchContentlets', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {boolean} p5 a param
+     * @param {boolean} p6 a param
+     * @param {int} p7 a param
+     * @param {int} p8 a param
+     * @param {class java.lang.String} p9 a param
+     * @param {class java.lang.String} p10 a param
+     * @param {class java.lang.String} p11 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchContentlets = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchContentlets', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {int} p5 a param
+     * @param {class java.lang.String} p6 a param
+     * @param {class java.lang.String} p7 a param
+     * @param {class java.lang.String} p8 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchContentlets = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchContentlets', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchFormWidget = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchFormWidget', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {boolean} p5 a param
+     * @param {boolean} p6 a param
+     * @param {int} p7 a param
+     * @param {class java.lang.String} p8 a param
+     * @param {int} p9 a param
+     * @param {class com.liferay.portal.model.User} p10 a param
+     * @param {class java.lang.String} p12 a param
+     * @param {class java.lang.String} p13 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.searchContentletsByUser = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12, p13, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'searchContentletsByUser', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getContentletsData = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'getContentletsData', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getContentletData = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'getContentletData', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.doSearchGlossaryTerm = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'doSearchGlossaryTerm', arguments);
+    };
+
+    /**
+     * @param {interface java.util.List} p0 a param
+     * @param {boolean} p1 a param
+     * @param {long} p2 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.publishContentlets = function(p0, p1, p2, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'publishContentlets', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {class java.lang.String} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.cancelContentEdit = function(p0, p1, p2, p3, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'cancelContentEdit', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {interface java.util.List} p1 a param
+     * @param {boolean} p2 a param
+     * @param {boolean} p3 a param
+     * @param {boolean} p4 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.saveContentProperties = function(p0, p1, p2, p3, p4, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'saveContentProperties', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.removeSiblingBinaryFromSession = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'removeSiblingBinaryFromSession', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {class java.lang.String} p2 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.unrelateContent = function(p0, p1, p2, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'unrelateContent', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.saveBinaryFileOnContent = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'ContentletAjax', 'saveBinaryFileOnContent', arguments);
+    };
+    
+    dwr.engine._setObject("ContentletAjax", p);
+  }
+})();
+

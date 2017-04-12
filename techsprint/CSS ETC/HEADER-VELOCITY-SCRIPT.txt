@@ -1,0 +1,148 @@
+<header class="header">
+
+  ## Unsupported browser warning message diplayed to users of IE 8 and below.
+  <!--[if lte IE 8]>
+    <div id="unsupportedBrowser-alert" class="alert alert-warning banner-alert">
+      <h4><i class="fa fa-exclamation-triangle"></i> #msgText('warning.unsupportedBrowserVerHeading')</h4>
+      <p>#msgText('warning.ie8Unsupported')</p>
+    </div>
+  <![endif]-->
+  ## This is the warning message that is diplayed to members to inform them that the site will be down for maintenance.
+  ## It can be configured in the Host Status tab.
+  #if( $hostStatusVT.showWarningMessage() )
+    <div id="siteDownForMaintenance-alert" class="alert alert-warning">
+      <p>$hostStatusVT.getMaintenanceMessage("#msgText('warning.siteDownForMaintenance')")</p>
+    </div>
+  #end
+  ## This is for the navigation bar.
+## original navbar 
+  <nav class="navbar navbar-brand navbar-default navbar-fixed-top"> <!-- navbar navbar-default navbar-static-top -->
+    <div class="container-fluid"> <!--container -->
+
+
+      <div class="navbar-header">
+
+
+    <!-- added KF -->
+    <div id="mobile-menu">
+        <div class="left-nav-toggle">
+            <a href="#">
+               <i class="stroke-hamburgermenu"></i>
+            </a>
+        </div>
+    </div>
+    #if($loggedin || ( $adminloggedin && $loggedin ))
+    <a class="navbar-brand" href="index.html">
+        ADMIN
+    </a>
+    #else
+    <a class="navbar-brand" href="/">
+        ADMIN
+    </a>
+    #end
+
+<!-- logo defined as SVG - removed temporary - KF - have copy-->
+</div> <!--navbar-header ends -->
+<!-- from template -->
+
+            <div id="navbar"> <!-- class="navbar-collapse collapse" -->
+                #if($loggedin || ( $adminloggedin && $loggedin ))
+                <div class="left-nav-toggle">
+                    <a href="">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+                
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control" placeholder="Search data for analysis" style="width: 175px">
+                </form>
+                #end
+                
+                
+    <aside class="navigation">
+        #if($loggedin || ( $adminloggedin && $loggedin ))
+        <nav id="LHSmenu">
+            
+          #if($loggedin )
+            $resources.getContentByName('Member Menu').body
+          #else
+            <ul class="nav luna-nav">
+            <li>&nbsp;</li>
+            </ul>
+          #end
+            
+        </nav>
+        #end
+    </aside>                
+
+
+
+            </div>
+
+<!-- from template ENDS -->
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        #if ($loggedin || ( $adminloggedin && $loggedin )) <!-- WAS: $thisPage == '/home/index.html' -->
+          <ul class="nav navbar-nav navbar-right"> <!-- WAS: <ul class="nav navbar-nav navbar-right homepage-nav"> -->
+        #else
+          <ul class="nav navbar-nav navbar-right" id="navbar-right-logged-out">
+        #end
+
+<!-- TO INTEGRATE INTO TEMPLATE navbar-right above BEGINS -->
+        $resources.getContentByName('Help Link').body
+        #if( $request.requestURI != "/help/index.html" )
+          <!--<li class="five"><form action="/mss/service/security/logout" method="post"><button id="logout" type="submit" class="link">#msgText('menu.logout')</button></form></li>-->
+          #if($loggedin )
+<!-- adding - profile test - KF -->
+
+
+
+<!-- ends -->
+
+            <li><a href="#"><i class="fa fa-bell"></a></i></li>
+            <li><a href="#"><i class="fa fa-envelope"></a></i></li>
+            <li><a href="#"><img style="width:55px" src="${dotTheme.path}images/profile-temp.svg"></a></li>
+            <li>                                    <table class="table small m-t-sm">
+                                        <tbody>
+                                        <tr>
+                                            <td class="hello">
+                                                <span class="hello">Hello $!{member.title} $!member.initials $!{member.surname}</span>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Last logged in
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                $date 
+                                            </td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table></li>
+            <li class="five"><form action="/mss/service/security/logout" method="post"><button id="logout" type="submit" class="link"><img src="${dotTheme.path}images/logout-icon-2.svg"><!--#msgText('menu.logout')-></button></form></li>-->
+          #else
+          
+          <li><a title="#msgText('heading.login1')" href="/home/login/"><i class="fa fa-sign-in"><span class="menuText">#msgText('heading.login1')</span></a></i></li>
+            <!--<li><a title="#msgText('heading.login1')" href="/home/login/"> #msgText('heading.login1')</a></li> <!-- <span class="glyphicon glyphicon-user"></span> -->
+          #end
+        #end
+        
+    <!-- TO INTEGRATE INTO TEMPLATE navbar-right above ENDS -->    
+        </ul>
+      </div>
+    </div>
+    ## This is the info bar - displayed to logged in members.
+    #if(  $request.requestURI != "/help/index.html" && ($loggedin || ( $adminloggedin && $loggedin )) )
+
+  #set($navigation = $navtool.getNav($_properties.home))
+      $resources.getContentByName('Info Bar').body
+    #end
+  </nav>
+  
+
+</header>
+

@@ -1,0 +1,76 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+  if (dwr.engine._getObject("LanguageAjax") == undefined) {
+    var p;
+    
+    p = {};
+    p._path = '/dwr';
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getLanguages = function(callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'getLanguages', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getLanguageKeys = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'getLanguageKeys', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getLanguageKeys = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'getLanguageKeys', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {int} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getPaginatedLanguageKeys = function(p0, p1, p2, p3, callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'getPaginatedLanguageKeys', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {int} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getPaginatedLanguageKeys = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'getPaginatedLanguageKeys', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {interface java.util.List} p2 a param
+     * @param {interface java.util.List} p3 a param
+     * @param {interface java.util.List} p4 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.saveKeys = function(p0, p1, p2, p3, p4, callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'saveKeys', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getLanguagesWithAllOption = function(callback) {
+      return dwr.engine._execute(p._path, 'LanguageAjax', 'getLanguagesWithAllOption', arguments);
+    };
+    
+    dwr.engine._setObject("LanguageAjax", p);
+  }
+})();
+

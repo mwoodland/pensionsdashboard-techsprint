@@ -1,0 +1,83 @@
+#set($_myPageTitle =$!{HTMLPAGE_TITLE})##
+#if($UtilMethods.isSet($!URLMapContent) && $UtilMethods.isSet($!URLMapContent.title))##
+#set($_myPageTitle = $URLMapContent.title)##
+#end##
+#set( $_titleParams = false )##
+##
+#if($_myPageTitle.contains('|'))##
+#set($splitTitle = $_myPageTitle.split('\|'))##
+#set($_myPageTitle = $splitTitle[0])##
+#set($_titleParams = [])##
+#set($size = $splitTitle.size()- 1)##
+#foreach($param in [1..$size] )##
+#set($res = $_titleParams.add($splitTitle[$param]))##
+#end##
+#end##
+<title>#msgText($_myPageTitle, $_titleParams) - #msgText('heading.pageTitle')</title>
+<meta charset="utf-8" />
+<meta name="description" content="$!{HTMLPAGE_DESCRIPTION}">
+
+#if($URLMapContent && $URLMapContent.tags)##
+#set($strKeywords="")##
+#foreach($keyword in $URLMapContent.tags)##
+#set($strKeywords="$strKeywords$keyword,")##
+#end##
+  <meta name="keywords" content="$strKeywords">  
+#else##
+  <meta name="keywords" content="$!{HTMLPAGE_KEYWORDS}">
+#end##
+<meta name="author" content="$!{HTMLPAGE_META}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- Bootstrap css must be local for Respond.js to work and give IE8 support. -->
+<link rel="stylesheet" href="${dotTheme.path}css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"-->
+
+$cssMinifyTool.addFiles( "${dotTheme.path}css/jquery-ui-1.10.0.custom.css,${dotTheme.path}css/bootstrap-colours.css,${dotTheme.path}css/calendar.css,${dotTheme.path}css/aquilaheywood-theme.css", 'all' )
+$cssMinifyTool.toLinkTag( 'all' )
+
+#if($adminVT.isEditMode())##
+  <link rel="stylesheet" href="${dotTheme.path}css/admin.css">
+#end##
+
+
+
+## Code for supporting older browsers.
+<!--[if lt IE 7]>
+  <div style="clear: both; text-align:center; position: relative;"> <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0" alt="" /></a></div>  
+<![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<script>
+    var LOCALE = "$!{i18nVT.getSessionLocale().toLanguageTag()}";
+    var DECIMAL = "$!formatVT.getDecimalSeparator()";
+    var SEPARATOR = "$!formatVT.getGrouping()";
+    var CURRENCY_SYMBOL = "$!formatVT.getCurrencySymbol()";
+    var IS_PREFIX = $!formatVT.isSymbolPrefix();
+    var DATE_FORMAT = "$!formatVT.getDateFormat()";
+    var SHORT_DATE_FORMAT = "$!formatVT.getShortDateFormat()";
+    var DATETIME_FORMAT = "$!formatVT.getDateTimeFormat()";
+    var KEEP_ALIVE = 1000000000;
+</script>
+
+<!-- KF adding alternate Bootstrap template LUNA - STARTS-->
+
+    <!-- Vendor styles -->
+    <!--<link rel="stylesheet" href="${dotTheme.path}vendor/fontawesome/css/font-awesome.css"/>-->
+    <link rel="stylesheet" href="${dotTheme.path}vendor/animate.css/animate.css"/>
+    <link rel="stylesheet" href="${dotTheme.path}vendor/bootstrap/css/bootstrap.css"/>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="${dotTheme.path}styles/pe-icons/pe-icon-7-stroke.css"/>
+    <link rel="stylesheet" href="${dotTheme.path}styles/pe-icons/helper.css"/>
+    <link rel="stylesheet" href="${dotTheme.path}styles/stroke-icons/style.css"/>
+    <link rel="stylesheet" href="${dotTheme.path}styles/style.css">

@@ -1,0 +1,850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0185)https://wireframes-ssf.hostingssf.aquilaheywood.com/home/index.html?leftMenu=true&livePage=0&com.dotmarketing.htmlpage.language=1&language=1&host_id=d1c17e0c-ddd0-42ce-b676-7595ce7dade1 -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="dj_webkit dj_chrome dj_contentbox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+<meta http-equiv="pragma" content="no-cache">
+
+
+
+
+
+<style type="text/css">
+    @import "/html/js/dojo/release/dojo/dijit/themes/dmundra/dmundra.css";
+    @import "/html/css/leftPreview.css";
+    @import "/html/css/dot_admin.css";
+</style>
+<script type="text/javascript">
+   	djConfig={
+           parseOnLoad: true,
+           isDebug: false,
+           modulePaths: { dotcms: "/html/js/dotcms", dwr: '/dwr' }
+   };
+</script>
+<script type="text/javascript" src="./dojo.js.download"></script>
+<script type="text/javascript" src="./dot-dojo.js.download"></script>
+<script type="text/javascript">
+    dojo.require("dojo.parser");
+    dojo.require("dijit.form.Button");
+    dojo.require('dijit.layout.TabContainer');
+    dojo.require('dijit.layout.ContentPane');
+    dojo.require('dijit.form.FilteringSelect');
+    dojo.require('dojo.data.ItemFileReadStore');
+    dojo.require("dojo.fx");
+
+</script>
+
+<script type="text/javascript" src="./engine.js.download"></script>
+<script type="text/javascript" src="./util.js.download"></script>
+<script type="text/javascript" src="./ContentletAjax.js.download"></script>
+<script type="text/javascript">
+	var language="1";
+	var personaId="";
+	var state="live";
+	var locked = false;
+	
+	
+	function setKeepAlive(){
+		var myId=document.getElementById("dot_keep_alive_hidden_iframe");
+		myId.src ="/html/common/keep_alive.jsp?r=" + Math.random();
+	}
+	// 15 minutes
+	setTimeout("setKeepAlive()", 60000 * 15);
+
+
+
+    function protoUpdateWrapper(element,code){
+        element.innerHTML='';
+        element.innerHTML=code;
+            }
+
+    function protoInsertionBottomWrapper(element,code){
+        Insertion.Bottom(element,code);
+    }
+
+    function backToCMS(){
+                    window.top.location  = "/c/portal/layout?p_l_id=d60e0383-f61f-4d2b-a631-19ca477f42fb&p_p_id=EXT_BROWSER&p_p_action=1&p_p_state=maximized&_EXT_BROWSER_struts_action=%2Fext%2Fbrowser%2Fview_browser";
+            }
+
+    function livePage(){
+		console.log("livePage");
+		console.log("locked:" + locked);
+		state="live";
+		changeUrl();
+    }
+
+    function changeLanguage(lang){
+    	language=lang;
+		changeUrl();
+    }
+    
+    function changePersona(){
+		if(dijit.byId("personaSelector")==undefined){
+			return;
+		}
+    	var val=dijit.byId("personaSelector").getValue();
+    	var ids = val.split(":");
+    	
+    	personaId=ids[0];
+    	
+    	getPersonaImage(ids[1]);
+		changeUrl();
+    }
+    
+    
+
+    var _lastUrl;
+    function changeUrl(){
+    	
+    	var newUrl=""; 
+    	newUrl+="/home/index.html?mainFrame=1&host_id=d1c17e0c-ddd0-42ce-b676-7595ce7dade1";
+    	newUrl+="&com.dotmarketing.htmlpage.language="+language ;
+    	newUrl+="&com.dotmarketing.persona.id="+personaId ;
+
+    	if(state == "live"){
+    		newUrl+="&livePage=1"
+    	}
+    	else if(state=="editing"){
+    		newUrl+="&previewPage=1"
+    	}
+    	else if(state=="preview"){
+    		newUrl+="&previewPage=2"
+    	}
+    	if(_lastUrl!=newUrl){
+	    	//console.log("changing url:" + newUrl);
+	    	_lastUrl=newUrl;
+	    	window.top.frameMain.location  = newUrl;
+   	 	}
+    }
+    
+    
+
+
+    function previewPage(){
+		//console.log("previewPage");
+		//console.log("locked:" + locked);
+    	state="preview";
+    	// hide editing, show preview
+    	if(locked){
+    		dojo.byId("previewModeTools").innerHTML=dojo.byId("lockedPageToolsTmpl").innerHTML;
+    		dojo.style(dijit.byId("editModeTab").controlButton.domNode,{display:"inline-block"});
+    	}
+    	else{
+        	var html = dojo.byId("unLockedPageToolsTmpl").innerHTML;
+			dojo.byId("previewModeTools").innerHTML=dojo.byId("unLockedPageToolsTmpl").innerHTML;
+			dojo.style(dijit.byId("editModeTab").controlButton.domNode,{display:"none"});
+    	}
+		
+
+    	changeUrl();
+    }
+
+    function editingPage(){
+		//console.log("editingPage");
+		//console.log("locked:" + locked);
+    	// hide preview, show editing
+		dojo.byId("lockedPageTools").innerHTML=dojo.byId("lockedPageToolsTmpl").innerHTML;
+		dojo.style(dijit.byId("editModeTab").controlButton.domNode,{display:"inline-block"});
+    	
+    	state="editing";
+    	changeUrl();
+    }
+
+    function popBrowser(x){
+        document.getElementById('container').value=x;
+        document.getElementById('cmd').value="addChild";
+        newwin = window.open('${viewFoldersURL}&view=%28working%3D1+and+deleted%3D0and+language_id+%3D+1%29&content=contentlets&popup=contentlet&child=true#treeTop', 'newwin', 'scrollbars=yes,width=700,height=400,scrollbars=yes,resizable=yes');
+    }
+
+    function submitParent(){
+        if(newwin) newwin.close();
+        document.getElementById('submitParent').submit();
+
+    }
+
+    function addPage(){
+        document.getElementById('htmlPage').value='0';
+        document.getElementById('cmd').value="newHTMLPage";
+ 
+        document.getElementById('HTMLPageType').value="c541abb1-69b3-4bc5-8430-5e09e5239cc8";
+        document.getElementById('submitParent').submit();
+    }
+
+    function editPageProperties(){
+        document.getElementById('cmd').value="editHTMLPage";
+        document.getElementById('submitParent').submit();
+    }
+    
+
+
+    function viewStatistics(){
+        document.getElementById('cmd').value="viewStatistics";
+        document.getElementById('submitParent').submit();
+    }
+
+    function viewTask(id){
+        document.getElementById('taskInode').value=id;
+        document.getElementById('cmd').value="viewWorkflow";
+        document.getElementById('submitParent').submit();
+    }
+
+    function publishAll(){
+        if(confirm("Are you sure you would like to publish this page?")){
+            document.getElementById('cmd').value="publishHTMLPage";
+            document.getElementById('submitParent').submit();
+        }
+    }
+
+    function remotePublishCall(){
+    	parent.remotePublish();
+    }
+
+    function addToBundleCall(){
+    	parent.addToBundle();
+    }
+    function editTemplate(){
+            document.getElementById('cmd').value="editTemplate";
+            document.getElementById('submitParent').submit();
+    }
+
+
+    function submitMenu() {
+        form = document.getElementById("form_menu");
+        formsubmitParent = document.getElementById("submitParent");
+        form.referer.value = formsubmitParent.referer.value;
+        form.submit();
+    }
+    function doLogout() {
+        top.window.location="/c/portal/logout?referer=/";
+    }
+    var is_collapsed = false;
+
+    function ToggleCollapse() {
+        if (is_collapsed) {
+            parent.document.getElementById('frameMenu').style.width="210px";
+            document.getElementById("main_window").style.display = 'block';
+            document.getElementById("max_bar").style.display = "block";
+            document.getElementById("max_bar").style.backgroundColor = "#E6E9EE";
+            document.getElementById("min_bar").style.display = 'none';
+            document.getElementById("min_bar").style.backgroundColor = "#E6E9EE";
+            document.getElementsByTagName("html")[0].style.overflow = "";
+            is_collapsed = false;
+            parent.resetFrameWidth();
+        } else {
+            document.getElementById("main_window").style.display = 'none';
+            document.getElementById("max_bar").style.display = "none";
+            document.getElementById("max_bar").style.backgroundColor = "#E6E9EE";
+            document.getElementById("min_bar").style.backgroundColor = "#E6E9EE";
+            document.getElementById("min_bar").style.display = 'block';
+            document.getElementsByTagName("html")[0].style.overflow = "hidden";
+            parent.document.getElementById('frameMenu').style.width="11px";
+            is_collapsed = true;
+            parent.resetFrameWidth();
+        }
+    }
+    
+    
+    function viewDiff(){
+		var varHTMLPage = document.getElementById("htmlPageId").value;
+		var diffUrl;
+                	diffUrl="/html/portlet/ext/htmlpages/view_live_working_diff.jsp?id=" + varHTMLPage + "&pageLang=" + language;
+                var nothingChangedMsg='Nothing Changed';
+        
+    	var xhrArgs = {
+    			url : diffUrl ,
+    			handleAs : "text",
+
+    			sync: false,
+    			load : function(data) {
+    				var html = data.trim();
+    				if(html.length<50 || html == nothingChangedMsg){
+    			    	parent.frameMenu.document.body.style.cursor  = 'default';
+    			    	parent.frameMain.document.body.style.cursor  = 'default';
+    					alert(nothingChangedMsg);
+    					
+    				}
+    				else{
+    					var  frameDocument=  parent.frameMain.document;
+    					frameDocument.write(html);
+    			    	parent.frameMenu.document.body.style.cursor  = 'default';
+    			    	parent.frameMain.document.body.style.cursor  = 'default';
+    			    	_lastUrl=diffUrl;
+    				}
+    			},
+    			error : function(error) {
+    				alert(error);
+    				console.log(error);
+    			}
+    		}
+    	
+    	parent.frameMenu.document.body.style.cursor  = 'progress';
+    	parent.frameMain.document.body.style.cursor  = 'progress';
+    	var deferred = dojo.xhrGet(xhrArgs);
+    }
+    
+    function fireLockPage(){
+    	var xhrArgs = {
+    			url : "/api/content/lock/inode/412567b6-7b89-452d-a84b-0d92cfe61dfa" ,
+    			handleAs : "json",
+
+    			
+    			headers: { 
+    		        'Accept': 'application/json',
+    		        'Content-Type': 'application/json' 
+    		    },
+    			sync: false,
+    			load : function(data) {
+
+    				
+    				toggleLock(true);
+    			},
+    			error : function(error) {
+    				console.log(error);
+    			}
+    		}
+
+    	var deferred = dojo.xhrPut(xhrArgs);
+    }
+    
+    function fireUnlockPage(){
+    	var xhrArgs = {
+    			url : "/api/content/unlock/inode/412567b6-7b89-452d-a84b-0d92cfe61dfa" ,
+    			handleAs : "json",
+
+    			
+    			headers: { 
+    		        'Accept': 'application/json',
+    		        'Content-Type': 'application/json' 
+    		    },
+    			sync: false,
+    			load : function(data) {
+    				toggleLock(false);
+    			},
+    			error : function(error) {
+    				console.log(error);
+    			}
+    		}
+
+    	var deferred = dojo.xhrPut(xhrArgs);
+
+    	
+    }
+    
+    
+    function getPersonaImage(inode){
+
+		if(document.getElementById("personaImage")==undefined){
+			return;
+		}
+   		if(!inode || inode==0 || inode=="0"){
+			document.getElementById("personaImage").style.backgroundImage="url(/html/images/persona/default-persona.png)";
+   			document.getElementById("personaImage").src="/html/images/shim.gif";
+   			document.getElementById("personaImage").style.backgroundColor="#fff";
+   			return;
+   		}
+
+		var imageUrl = "/contentAsset/image/" + inode + "/photo/byInode/true/filter/Thumbnail/thumbnail_w/80/thumbnail_h/80/?r=" +new Date().getTime();
+		var newImage = new Image();
+						
+		newImage.onload = function(){
+			document.getElementById("personaImage").src= this.src;
+		}
+		newImage.onerror = function(){
+			console.log(document.getElementById("personaImage").style);
+			document.getElementById("personaImage").src="/html/images/shim.gif";
+			document.getElementById("personaImage").style.backgroundImage="url(/html/images/persona/default-persona.png)";
+			document.getElementById("personaImage").style.backgroundColor="#fff";
+		}
+		newImage.src=imageUrl;
+
+
+    }
+    
+    
+    
+    
+    
+    function toggleLock(lock){
+
+    	locked = lock;
+		//console.log("toggleLock");
+		//console.log("locked:" + locked);
+    	if(locked && true){
+
+			var edit = dijit.byId("editModeTab");
+			var tabs = dijit.byId("mainTabContainer");
+			if(tabs.selectedChildWidget.id==edit.id){
+				editingPage();
+			}
+			else{
+				tabs.selectChild(edit);
+			}
+			
+
+
+    	}else{
+
+			var preview = dijit.byId("previewModeTab");
+			var tabs = dijit.byId("mainTabContainer");
+			
+			//console.log(tabs.selectedChildWidget.id)
+			//console.log(preview.id)
+			if(tabs.selectedChildWidget.id==preview.id){
+				previewPage();
+			}
+			else{
+				tabs.selectChild(preview);
+			}
+
+    	}
+    }
+
+    
+    
+    
+    dojo.ready(function(){
+
+    	
+    	
+		html = dojo.byId("commonPageToolsTmpl").innerHTML;
+		dojo.query(".commonPageTools").forEach(function(node, index, arr){
+		    node.innerHTML = html
+		});
+		
+		toggleLock(locked);
+		getPersonaImage('');
+
+    })
+    
+    
+    
+    
+    dojo.subscribe("mainTabContainer-selectChild", function(child){
+		//console.log("tab selected child:" + child.id);
+        if("previewModeTab" == child.id){
+            previewPage();
+        }
+        else if("editModeTab" == child.id){
+            editingPage();
+        }
+        else{
+            livePage();
+        }
+    });
+
+    
+</script>
+</head>
+
+<body class="dmundra" marginwidth="0" marginheight="0">
+
+<!-- Start Frame Max-Min -->
+    <div class="maxmin" id="min_bar" style="z-index:1000" onmouseover="this.style.backgroundColor=&#39;#cbe1f2&#39;" onmouseout="this.style.backgroundColor=&#39;#E6E9EE&#39;" onclick="ToggleCollapse()" title="Expand pane">
+    </div>
+    <div class="maxmin" id="max_bar" style="z-index:1000" onmouseover="this.style.backgroundColor=&#39;#cbe1f2&#39;" onmouseout="this.style.backgroundColor=&#39;#E6E9EE&#39;" title="Collapse pane" onclick="ToggleCollapse()">
+    </div>
+<!-- END Frame Max-Min -->
+
+
+
+<div id="main_window" class="sideMenu">
+
+<div class="dijitTabContainer dijitTabContainerTop dijitContainer dijitLayoutContainer dijitTabContainerNoLayout tabStrip-disabled" id="mainTabContainer" widgetid="mainTabContainer">
+	<div class="dijitTabListContainer-top dijitTabController dijitScrollingTabController tabStrip-disabled dijitLayoutContainer" style="height: 31px; width: 220px;" id="mainTabContainer_tablist" widgetid="mainTabContainer_tablist" _dijitmenumaintabcontainer_tablist_menu="1">
+	<div data-dojo-attach-event="onclick:_onClick" class="dijitTabInnerDiv dijitTabContent dijitButtonContents dijitTab tabStripButton dijitbelow-altArrowButton tabStripButton-top dijitAlignRight" data-dojo-attach-point="focusNode" role="button" tabindex="-1" id="mainTabContainer_tablist_menuBtn" title="" widgetid="mainTabContainer_tablist_menuBtn" style="user-select: none; display: none; left: 216px; top: 0px; position: absolute; height: 20px;">
+	<img role="presentation" alt="" src="./blank.gif" class="dijitTabStripIcon dijitTabStripMenuIcon" data-dojo-attach-point="iconNode">
+	<span data-dojo-attach-point="containerNode,titleNode" class="dijitButtonText dijitDisplayNone">▼</span>
+</div>
+	<div data-dojo-attach-event="onclick:_onClick" class="dijitTabInnerDiv dijitTabContent dijitButtonContents tabStripButton-top dijitAlignLeft dijitTab tabStripButton dijitTabDisabled tabStripButtonDisabled dijitDisabled" data-dojo-attach-point="focusNode" role="button" id="mainTabContainer_tablist_leftBtn" title="" widgetid="mainTabContainer_tablist_leftBtn" aria-disabled="true" tabindex="-1" style="user-select: none; display: none; left: 0px; top: 0px; position: absolute; height: 20px;">
+	<img role="presentation" alt="" src="./blank.gif" class="dijitTabStripIcon dijitTabStripSlideLeftIcon" data-dojo-attach-point="iconNode">
+	<span data-dojo-attach-point="containerNode,titleNode" class="dijitButtonText dijitDisplayNone">◀</span>
+</div>
+	<div data-dojo-attach-event="onclick:_onClick" class="dijitTabInnerDiv dijitTabContent dijitButtonContents tabStripButton-top dijitAlignRight dijitTab tabStripButton dijitTabDisabled tabStripButtonDisabled dijitDisabled" data-dojo-attach-point="focusNode" role="button" id="mainTabContainer_tablist_rightBtn" title="" widgetid="mainTabContainer_tablist_rightBtn" aria-disabled="true" tabindex="-1" style="user-select: none; display: none; left: 212px; top: 0px; position: absolute; height: 20px;">
+	<img role="presentation" alt="" src="./blank.gif" class="dijitTabStripIcon dijitTabStripSlideRightIcon" data-dojo-attach-point="iconNode">
+	<span data-dojo-attach-point="containerNode,titleNode" class="dijitButtonText dijitDisplayNone">▶</span>
+</div>
+	<div class="dijitTabListWrapper dijitTabContainerTopNone dijitAlignClient" data-dojo-attach-point="tablistWrapper" style="height: 31px; left: 4px; top: 0px; position: absolute; width: 208px;">
+		<div role="tablist" data-dojo-attach-event="onkeydown:onkeydown" data-dojo-attach-point="containerNode" class="nowrapTabStrip dijitTabContainerTop-tabs dijitTabNoLayout" style="width: 50600px;"><div role="presentation" data-dojo-attach-point="titleNode,innerDiv,tabContent" class="dijitTabInner dijitTabContent dijitTab" widgetid="mainTabContainer_tablist_editModeTab" style="display: none;">
+	<img src="./blank.gif" alt="" class="dijitIcon dijitTabButtonIcon dijitNoIcon" data-dojo-attach-point="iconNode">
+	<span data-dojo-attach-point="containerNode,focusNode" class="tabLabel" role="tab" tabindex="-1" id="mainTabContainer_tablist_editModeTab" name="mainTabContainer_tablist_editModeTab" aria-disabled="false" title="" aria-selected="false" style="user-select: none;">Edit</span>
+	<span class="dijitInline dijitTabCloseButton dijitTabCloseIcon" data-dojo-attach-point="closeNode" role="presentation" title="Close" style="display: none;">
+		<span data-dojo-attach-point="closeText" class="dijitTabCloseText">[x]</span></span>
+</div><div role="presentation" data-dojo-attach-point="titleNode,innerDiv,tabContent" class="dijitTabInner dijitTabContent dijitTab dijitTabChecked dijitChecked" widgetid="mainTabContainer_tablist_previewModeTab">
+	<img src="./blank.gif" alt="" class="dijitIcon dijitTabButtonIcon dijitNoIcon" data-dojo-attach-point="iconNode">
+	<span data-dojo-attach-point="containerNode,focusNode" class="tabLabel" role="tab" tabindex="0" id="mainTabContainer_tablist_previewModeTab" name="mainTabContainer_tablist_previewModeTab" aria-disabled="false" title="" aria-selected="true" style="user-select: none;">Preview</span>
+	<span class="dijitInline dijitTabCloseButton dijitTabCloseIcon" data-dojo-attach-point="closeNode" role="presentation" title="Close" style="display: none;">
+		<span data-dojo-attach-point="closeText" class="dijitTabCloseText">[x]</span></span>
+</div><div role="presentation" data-dojo-attach-point="titleNode,innerDiv,tabContent" class="dijitTabInner dijitTabContent dijitTab" widgetid="mainTabContainer_tablist_liveModeTab">
+	<img src="./blank.gif" alt="" class="dijitIcon dijitTabButtonIcon dijitNoIcon" data-dojo-attach-point="iconNode">
+	<span data-dojo-attach-point="containerNode,focusNode" class="tabLabel" role="tab" tabindex="-1" id="mainTabContainer_tablist_liveModeTab" name="mainTabContainer_tablist_liveModeTab" aria-disabled="false" title="" style="user-select: none;">Live</span>
+	<span class="dijitInline dijitTabCloseButton dijitTabCloseIcon" data-dojo-attach-point="closeNode" role="presentation" title="Close" style="display: none;">
+		<span data-dojo-attach-point="closeText" class="dijitTabCloseText">[x]</span></span>
+</div></div>
+	</div>
+</div>
+	<div data-dojo-attach-point="tablistSpacer" class="dijitTabSpacer dijitTabContainerTop-spacer"></div>
+	<div class="dijitTabPaneWrapper dijitTabContainerTop-container" data-dojo-attach-point="containerNode">
+
+        
+<!-- Edit Mode -->
+  <div role="tabpanel" class="dijitTabContainerTopChildWrapper dijitHidden" aria-labelledby="mainTabContainer_tablist_editModeTab"><div id="editModeTab" dojotype="dijit.layout.ContentPane" class="dijitContentPane dijitTabPane dijitTabContainerTop-child dijitTabContainerTop-dijitContentPane" widgetid="editModeTab" title="">
+       	<div class="pageTools" id="lockedPageTools"></div>
+		<div class="pageTools commonPageTools">
+		<a href="javascript: editPageProperties();">
+			<span class="pagePropIcon"></span> Page Properties
+		</a>
+		<a href="javascript: viewStatistics();">
+			<span class="statisticsIcon"></span> Page Statistics
+		</a>
+	
+					<a href="javascript: editTemplate();">
+				<span class="templateIcon"></span> Edit Template
+			</a>
+			
+		<hr>
+	
+		<a href="javascript: addPage();">
+			<span class="newPageIcon"></span> Create New Page
+		</a>
+	</div>
+    </div></div>
+
+<!-- /Edit Mode -->
+        
+        
+<!-- Preview Mode -->
+    <div role="tabpanel" class="dijitTabContainerTopChildWrapper dijitVisible" aria-labelledby="mainTabContainer_tablist_previewModeTab"><div id="previewModeTab" dojotype="dijit.layout.ContentPane" selected="true" class="dijitContentPane dijitTabPane dijitTabContainerTop-child dijitTabContainerTop-dijitContentPane" widgetid="previewModeTab" title="">
+       
+       	<div class="pageTools" id="previewModeTools">
+	    			<div id="lockBtn">
+				<a href="https://wireframes-ssf.hostingssf.aquilaheywood.com/home/index.html?leftMenu=true&amp;livePage=0&amp;com.dotmarketing.htmlpage.language=1&amp;language=1&amp;host_id=d1c17e0c-ddd0-42ce-b676-7595ce7dade1#" onclick="fireLockPage()">
+					<span class="lockIcon"></span> Lock for Editing
+				</a>
+			</div>
+				        		                <a href="javascript: publishAll();">
+	                	<span class="publishIcon"></span> Publish Page
+	                </a>
+	                	                    		                 <a href="javascript: addToBundleCall();">
+		                	<span class="bundleIcon"></span> Add To Bundle
+		                </a>
+	                	            	           	           
+						</div>
+
+
+
+					<div class="pageTools">
+				<a href="javascript: viewDiff();">
+					<span class="redlineIcon"></span> What's Changed?
+				</a>
+			</div>
+		
+    	<div class="pageTools commonPageTools">
+		<a href="javascript: editPageProperties();">
+			<span class="pagePropIcon"></span> Page Properties
+		</a>
+		<a href="javascript: viewStatistics();">
+			<span class="statisticsIcon"></span> Page Statistics
+		</a>
+	
+					<a href="javascript: editTemplate();">
+				<span class="templateIcon"></span> Edit Template
+			</a>
+			
+		<hr>
+	
+		<a href="javascript: addPage();">
+			<span class="newPageIcon"></span> Create New Page
+		</a>
+	</div>
+    </div></div>
+<!-- /Preview Mode -->
+
+
+
+
+<!-- Live Mode -->
+    <div role="tabpanel" class="dijitTabContainerTopChildWrapper dijitHidden" aria-labelledby="mainTabContainer_tablist_liveModeTab"><div id="liveModeTab" dojotype="dijit.layout.ContentPane" selected="true" class="dijitContentPane dijitTabPane dijitTabContainerTop-child dijitTabContainerTop-dijitContentPane" widgetid="liveModeTab" title="">
+        <div class="pageTools commonPageTools">
+		<a href="javascript: editPageProperties();">
+			<span class="pagePropIcon"></span> Page Properties
+		</a>
+		<a href="javascript: viewStatistics();">
+			<span class="statisticsIcon"></span> Page Statistics
+		</a>
+	
+					<a href="javascript: editTemplate();">
+				<span class="templateIcon"></span> Edit Template
+			</a>
+			
+		<hr>
+	
+		<a href="javascript: addPage();">
+			<span class="newPageIcon"></span> Create New Page
+		</a>
+	</div>
+    </div></div>
+<!-- /Live Mode -->
+
+
+
+</div>
+</div>
+
+
+		<div id="personaInfo" style="text-align:center;border:0px;margin:10px 0px 0px 0px;visibility:none;">
+		<div style="padding:0px 0px 10px 0px;">
+			Viewing as:
+		</div>
+		<div id="personaImageDiv">
+			<img id="personaImage" src="./shim.gif" style="border-radius: 25%; width: 100px; height: 100px; border: 0px; background: url(&quot;/html/images/persona/default-persona.png&quot;) center center no-repeat rgb(255, 255, 255);"> 
+		</div>
+	</div>
+
+	<div class="lang" style="border-top:0px;padding-left:0px;text-align:center;">
+	
+		<div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_personaSelector" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="personaSelector"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" aria-required="true" tabindex="0" id="personaSelector" value="Default Visitor" aria-invalid="false"><input type="hidden" name="personaSelector" value="0:0"></div></div>
+	</div>
+
+
+<!-- Start Languages -->
+            <div class="lang" style="border-top:0px;padding-left:0px;margin-left:0px;text-align:center;">
+
+            <div id="combo_zone2">
+                <div class="dijit dijitReset dijitInline dijitLeft dijitTextBox dijitComboBox dijitValidationTextBox" id="widget_language_id" role="combobox" aria-haspopup="true" data-dojo-attach-point="_popupStateNode" widgetid="language_id"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" data-dojo-attach-point="_buttonNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="button presentation" aria-hidden="true"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer" style="background-image: url(&quot;/html/images/languages/en_GB.gif&quot;); background-repeat: no-repeat; padding: 0px 0px 0px 25px; background-color: transparent; background-position: 3px 6px;"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" data-dojo-attach-point="textbox,focusNode" role="textbox" tabindex="0" id="language_id" aria-required="true" value="" aria-invalid="false"><input type="hidden" name="language_id" value="1"></div></div>
+            </div>
+
+              <script>
+
+                                                     
+                                                      
+                  // http://jira.dotmarketing.net/browse/DOTCMS-6148
+                  
+                                      
+                                                          	                    	                        
+                                                                                                          
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                          
+                function updateSelectBoxImage(myselect) {
+                    var imagestyle = "url('" + myselect.item.imageurl + "')";
+                    var selField = dojo.query('#combo_zone2 div.dijitInputField')[0];
+                    dojo.style(selField, "backgroundImage", imagestyle);
+                    dojo.style(selField, "backgroundRepeat", "no-repeat");
+                    dojo.style(selField, "padding", "0px 0px 0px 25px");
+                    dojo.style(selField, "backgroundColor", "transparent");
+                    dojo.style(selField, "backgroundPosition", "3px 6px");
+                }
+
+                    var storeData={identifier:'id',imageurl:'imageurl',label:'label',items:[{id:'1',value:'1',imageurl:'/html/images/languages/en_GB.gif',lang:'English (GB)',label:'<span style="background-image:url(/html/images/languages/en_GB.gif);width:16px;height:11px;margin:3px 5px;display:inline-block;vertical-align:middle"></span>English (GB)'}]};
+                    var langStore = new dojo.data.ItemFileReadStore({data: storeData});
+                    var myselect = new dijit.form.FilteringSelect({
+                             id: "language_id",
+                             name: "language_id",
+                             value: '',
+                             required: true,
+                             store: langStore,
+                             searchAttr: "lang",
+                             labelAttr: "label",
+                             labelType: "html",
+                             onChange: function() {
+                                 var el=dijit.byId('language_id');
+                                 updateSelectBoxImage(el);
+                                 changeLanguage(el.item.value);
+                             },
+                             labelFunc: function(item, store) { return store.getValue(item, "label"); }
+                        },
+                        dojo.byId("language_id"));
+                        myselect.setValue('1');
+
+            </script>
+        </div>
+    <!-- End Languages -->
+
+
+
+    <div class="clear"></div>
+
+<!-- Start Controles -->
+	<div id="buttonRow">
+	    <span class="dijit dijitReset dijitInline dijitButton" role="presentation" widgetid="dijit_form_Button_0"><span class="dijitReset dijitInline dijitButtonNode" data-dojo-attach-event="ondijitclick:__onClick" role="presentation"><span class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="titleNode,focusNode" role="button" aria-labelledby="dijit_form_Button_0_label" tabindex="0" id="dijit_form_Button_0" style="user-select: none;"><span class="dijitReset dijitInline dijitIcon cancelIcon" data-dojo-attach-point="iconNode"></span><span class="dijitReset dijitToggleButtonIconChar">●</span><span class="dijitReset dijitInline dijitButtonText" id="dijit_form_Button_0_label" data-dojo-attach-point="containerNode">Admin Screen</span></span></span><input type="button" value="" class="dijitOffScreen" data-dojo-attach-event="onclick:_onClick" tabindex="-1" role="presentation" data-dojo-attach-point="valueNode"></span>
+	</div>
+	
+
+	<div class="clear"></div>
+
+
+
+
+	<div class="logout">
+	    <span class="dijit dijitReset dijitInline dijitButton" role="presentation" widgetid="dijit_form_Button_1"><span class="dijitReset dijitInline dijitButtonNode" data-dojo-attach-event="ondijitclick:__onClick" role="presentation"><span class="dijitReset dijitStretch dijitButtonContents" data-dojo-attach-point="titleNode,focusNode" role="button" aria-labelledby="dijit_form_Button_1_label" tabindex="0" id="dijit_form_Button_1" style="user-select: none;"><span class="dijitReset dijitInline dijitIcon closeIcon" data-dojo-attach-point="iconNode"></span><span class="dijitReset dijitToggleButtonIconChar">●</span><span class="dijitReset dijitInline dijitButtonText" id="dijit_form_Button_1_label" data-dojo-attach-point="containerNode">Logout</span></span></span><input type="button" value="" class="dijitOffScreen" data-dojo-attach-event="onclick:_onClick" tabindex="-1" role="presentation" data-dojo-attach-point="valueNode"></span>
+	</div>
+
+<!-- END Controles -->
+
+</div>
+
+<div style="display:none">
+<form action="https://wireframes-ssf.hostingssf.aquilaheywood.com/c/portal/layout?p_l_id=d60e0383-f61f-4d2b-a631-19ca477f42fb&amp;p_p_id=EXT_BROWSER&amp;p_p_action=1&amp;p_p_state=maximized&amp;_EXT_BROWSER_struts_action=%2Fext%2Fdirector%2Fdirect" id="submitParent" method="post" target="_top">
+    <input type="hidden" name="referer" id="referer" value="/home/index.html?language=1&amp;host_id=d1c17e0c-ddd0-42ce-b676-7595ce7dade1">
+    <input type="hidden" name="taskInode" id="taskInode" value="">
+    <input type="hidden" name="cmd" id="cmd" value="addChild">
+    <input type="hidden" name="container" id="container" value="">
+    <input type="hidden" name="htmlPage" id="htmlPage" value="412567b6-7b89-452d-a84b-0d92cfe61dfa">
+    <input type="hidden" name="htmlPageId" id="htmlPageId" value="33ed2baf-46a4-4c40-ad0f-ac15aae74e24">
+    <input type="hidden" name="contentlet" id="contentlet" value="">
+    <input type="hidden" name="selectedcontentlet" id="selectedcontentlet" value="">
+    <input type="hidden" name="menuItem" id="menuItem" value="">
+    <input type="hidden" name="level" id="level" value="">
+    <input type="hidden" name="static" id="static" value="">
+    <input type="hidden" name="course" id="course" value="">
+    <input type="hidden" name="department" id="department" value="">
+    <input type="hidden" name="package" id="package" value="">
+    <input type="hidden" name="category" id="category" value="">
+    <input type="hidden" name="parentFolder" id="parentFolder" value="">
+    <input type="hidden" name="HTMLPageType" id="HTMLPageType" value="">
+    <input type="hidden" name="language" id="language" value="1">
+     <input type="hidden" name="folder" id="folder" value="78e43b9f-25bf-48d3-942b-bb6be69a2ceb">
+    
+</form>
+</div>
+
+
+
+
+
+
+<!-- HTML Templates for the buttons for the different states -->
+
+
+	<div id="commonPageToolsTmpl" style="display:none">
+		<a href="javascript: editPageProperties();">
+			<span class="pagePropIcon"></span> Page Properties
+		</a>
+		<a href="javascript: viewStatistics();">
+			<span class="statisticsIcon"></span> Page Statistics
+		</a>
+	
+					<a href="javascript: editTemplate();">
+				<span class="templateIcon"></span> Edit Template
+			</a>
+			
+		<hr>
+	
+		<a href="javascript: addPage();">
+			<span class="newPageIcon"></span> Create New Page
+		</a>
+	</div>
+
+
+
+
+
+
+    <div id="lockedPageToolsTmpl" style="display:none">
+    				<a href="https://wireframes-ssf.hostingssf.aquilaheywood.com/home/index.html?leftMenu=true&amp;livePage=0&amp;com.dotmarketing.htmlpage.language=1&amp;language=1&amp;host_id=d1c17e0c-ddd0-42ce-b676-7595ce7dade1#" onclick="fireUnlockPage()">
+				<span class="unlockIcon"></span> Release Lock
+			</a>
+				        		                <a href="javascript: publishAll();">
+	                	<span class="publishIcon"></span> Publish Page
+	                </a>
+	                	                    		                 <a href="javascript: addToBundleCall();">
+		                	<span class="bundleIcon"></span> Add To Bundle
+		                </a>
+	                	            	        	           
+
+							
+	</div>
+	
+	
+	
+    <div id="unLockedPageToolsTmpl" style="display:none">
+	    			<div id="lockBtn">
+				<a href="https://wireframes-ssf.hostingssf.aquilaheywood.com/home/index.html?leftMenu=true&amp;livePage=0&amp;com.dotmarketing.htmlpage.language=1&amp;language=1&amp;host_id=d1c17e0c-ddd0-42ce-b676-7595ce7dade1#" onclick="fireLockPage()">
+					<span class="lockIcon"></span> Lock for Editing
+				</a>
+			</div>
+				        		                <a href="javascript: publishAll();">
+	                	<span class="publishIcon"></span> Publish Page
+	                </a>
+	                	                    		                 <a href="javascript: addToBundleCall();">
+		                	<span class="bundleIcon"></span> Add To Bundle
+		                </a>
+	                	            	           	           
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<iframe name="hidden_iframe" id="dot_keep_alive_hidden_iframe" style="position:absolute;top:-100px;width:0px; height:0px; border: 0px;" src="./saved_resource.html"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body></html>

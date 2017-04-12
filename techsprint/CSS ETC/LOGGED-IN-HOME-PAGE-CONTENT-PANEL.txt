@@ -1,0 +1,212 @@
+#if( $ADMIN_MODE || ( $pageVisibilityVT.hasRole( 'DEFINED_CONTRIBUTIONS' ) && ( $pageVisibilityVT.hasRole( 'ACTIVE' ) || $pageVisibilityVT.hasRole( 'DEFERRED_PENSIONER' ) ) ) )
+
+<div id="name-policy-number">
+<!--  <h1>#msgText('heading.home', "$!{member.title} $!member.initials $!{member.surname}")</h1>-->
+</div>
+
+<div id="dashboard">
+
+    <div class="row draggable-container">
+                <div class="col-md-4">
+                    <div class="panel panel-filled">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
+                                <a class="panel-close"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h3>Pension Overview</h3>
+                        </div>
+                        <div class="panel-body">
+<table  class="table table-hover table-striped noBorders">
+
+                                    <tbody>
+                                    <tr>
+                                        <td><h4>Current Value</h4></td>
+                                        <td><h4>£266,329</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Tax-free cash available</h5></td>
+                                        <td><h5>£66,582</h5></td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+
+                        </div>
+                    </div>
+                    <div class="panel panel-filled">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
+                                <a class="panel-close"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h3>All Products</h3>
+                        </div>
+                        <div class="panel-body">
+
+Pension, ISA, Total
+
+                        </div>
+                    </div>
+                </div> <!-- end of first column -->
+
+                <div class="col-md-4">
+                    <div class="panel panel-filled">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
+                                <a class="panel-close"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h3>Savings</h3>
+                        </div>
+                        <div class="panel-body">
+
+                           <div>
+                                <canvas id="doughnutChart" height="180"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-filled">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
+                                <a class="panel-close"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h3>Housing Wealth</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                                the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                of type and scrambled it to make a type specimen book.
+                            </p>
+
+                        </div>
+                    </div>
+                </div> <!-- end of second column -->
+				
+				<div class="col-md-4 FIXEDWIDTH">
+                    <div class="panel panel-filled tallPanel">
+                       
+<!--                       <figure id="govUKVerify">
+						<figcaption>
+							<div>
+								<h2>You could have more</h2>
+								<h4 class="tealAccentColor">than you realise</h4>
+							</div>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>-->
+<!--                        <ul class="fixed cropcenterimg">
+  <li class="vert"><img style="height:400px" src="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/52594/Verify_logo.png"/></li>
+-->
+
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
+                                <a class="panel-close"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h3 class="hasSubtitle">You could have more</h3>
+<h4 class="subtitle tealAccentColor">than you realise</h4>
+                        </div>
+                        <div class="panel-body">
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-filled">
+                        <div class="panel-heading">
+                            <div class="panel-tools">
+                                <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
+                                <a class="panel-close"><i class="fa fa-times"></i></a>
+                            </div>
+                            <h3>Did you know?</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <p>
+                                If you consolidate your pensions you could save money on the cost of loans.
+                            </p>
+
+                        </div>
+                    </div>
+                </div> <!-- end of third column -->
+
+</div>
+
+  <div id="dashboard-bottom" class="padding-40">
+    <div class="hideNOW row">
+      <div class="col-md-4">
+        <h2>#msgText('dashboard.heading.yourPaymentDetails')</h2>
+        <p>#msgText('dashboard.eeRegularContribution') #formatVal( $member.selectedContract.dcData.employeeAmount, true)</p>
+        <p>#msgText('dashboard.erRegularContribution') #formatVal( $member.selectedContract.dcData.employerAmount, true)</p>
+        <p>
+          #if ($!{member.selectedContract.dcData.weeklyMonthly}=="M")
+            #msgText('dashboard.frequency.monthly')
+          #elseif ($!{member.selectedContract.dcData.weeklyMonthly}=="W")
+            #msgText('dashboard.frequency.weekly')
+          #end
+        </p>
+        <p><a href="dc/investment-history.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.viewTransactionHistory')</a></p>
+      </div>
+   
+      <div class="col-md-4">
+        <h2>#msgText('dashboard.heading.documentsAndMessages')</h2>
+        <p>#msgText('dashboard.documentsAndMessages.para1')</p>
+        <p><a href="documents/index.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.viewDocumentsAndMessages')</a></p>
+      </div>
+      
+      <div class="col-md-4">
+        <h2>#msgText('dashboard.heading.quickLinks')</h2>
+        <p><a href="nominations/index.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.addChangeNominations')</a></p>
+        <p><a href="dc/fund-switch.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.performAFundSwitch')</a></p>
+        <p><a href="my-details/index.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.updateContactDetails')</a></p>
+        <p><a href="change-password.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.changePassword')</a></p>   
+        <p><a href="site-map.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.cantFindWhatYoureLookingFor')</a></p>  
+        <p><a href="contact-us.html"><span class="glyphicon glyphicon-play"></span>#msgText('dashboard.contactUs')</a></p>
+      </div>  
+    </div>
+  </div>
+</div>
+$resources.renderWidget('Dashboard Chart', 'Chart', 'widgetTitle')
+#set($newsAndEvents = $resources.getContentByName( 'News and Events Home' ))
+#editContentlet($newsAndEvents.inode)
+$newsAndEvents.body
+#else
+<div class="page-header">
+  <h1>#msgText('heading.home', "$!{member.title} ${member.surname}")</h1>
+</div>
+$resources.getContentByName( 'Contents' ).body
+#end
+
+#if( $member.contracts && $member.contracts.size() > 1 )
+ $jsMinifyTool.addInlines("$( '#dropdown-toggle-caret' ).popover( {
+  content: \"#msgText('infobar.popover.multipleEmployments')\",
+  placement: 'bottom',
+  trigger: 'manual'
+} );
+
+$( function() {
+  $( '#dropdown-toggle-caret' ).popover('show');
+});
+
+$( '#dropdown-toggle-caret' ).on( 'shown.bs.popover', function() {
+  setTimeout( function() {
+    $( '#dropdown-toggle-caret' ).popover('hide');
+  }, 10000 );
+});
+
+$( '#dropdown-toggle-a' ).on( 'click', function() {
+  $( '#dropdown-toggle-caret' ).popover('hide');
+});
+
+$( '#dropdown-toggle-caret' ).on( 'hidden.bs.popover', function() {
+  $( '#dropdown-toggle-caret' ).popover( 'destroy' );
+});", 'all' )
+#end

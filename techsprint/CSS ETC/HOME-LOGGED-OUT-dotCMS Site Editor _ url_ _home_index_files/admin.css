@@ -1,0 +1,2 @@
+.carousel-container{ height: 350px !important; overflow-y: hidden; }
+.dotContentletControls, .dotContainerControls { z-index: 9999 !important; }

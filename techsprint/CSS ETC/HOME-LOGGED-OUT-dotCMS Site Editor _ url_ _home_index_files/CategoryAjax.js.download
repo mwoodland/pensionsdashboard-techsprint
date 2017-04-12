@@ -1,0 +1,136 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+  if (dwr.engine._getObject("CategoryAjax") == undefined) {
+    var p;
+    
+    p = {};
+    p._path = '/dwr';
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getChildrenCategories = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'getChildrenCategories', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getChildrenCategories = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'getChildrenCategories', arguments);
+    };
+
+    /**
+     * @param {interface com.dotmarketing.portlets.categories.business.CategoryAPI} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.setCategoryAPI = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'setCategoryAPI', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getCategoryAPI = function(callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'getCategoryAPI', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getSubCategories = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'getSubCategories', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.findChildrenCategories = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'findChildrenCategories', arguments);
+    };
+
+    /**
+     * @param {class [Ljava.lang.String;} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.deleteSelectedCategories = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'deleteSelectedCategories', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.deleteCategories = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'deleteCategories', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.deleteCategory = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'deleteCategory', arguments);
+    };
+
+    /**
+     * @param {class java.lang.Boolean} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {class java.lang.String} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {class java.lang.String} p4 a param
+     * @param {class java.lang.String} p5 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.saveOrUpdateCategory = function(p0, p1, p2, p3, p4, p5, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'saveOrUpdateCategory', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.sortCategory = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'sortCategory', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {class [B} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.importCategories = function(p0, p1, p2, p3, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'importCategories', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getCategoryMap = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'getCategoryMap', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getPermission = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'CategoryAjax', 'getPermission', arguments);
+    };
+    
+    dwr.engine._setObject("CategoryAjax", p);
+  }
+})();
+

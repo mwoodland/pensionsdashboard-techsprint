@@ -1,0 +1,452 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+  if (dwr.engine._getObject("BrowserAjax") == undefined) {
+    var p;
+    
+    p = {};
+    p._path = '/dwr';
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {int} p1 a param
+     * @param {int} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {interface java.util.List} p4 a param
+     * @param {interface java.util.List} p5 a param
+     * @param {boolean} p6 a param
+     * @param {boolean} p7 a param
+     * @param {boolean} p8 a param
+     * @param {class java.lang.String} p9 a param
+     * @param {boolean} p10 a param
+     * @param {boolean} p11 a param
+     * @param {long} p12 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFolderContent = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFolderContent', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {int} p1 a param
+     * @param {int} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {interface java.util.List} p4 a param
+     * @param {interface java.util.List} p5 a param
+     * @param {boolean} p6 a param
+     * @param {boolean} p7 a param
+     * @param {boolean} p8 a param
+     * @param {class java.lang.String} p9 a param
+     * @param {boolean} p10 a param
+     * @param {long} p11 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFolderContent = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFolderContent', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {int} p1 a param
+     * @param {int} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {interface java.util.List} p4 a param
+     * @param {interface java.util.List} p5 a param
+     * @param {boolean} p6 a param
+     * @param {boolean} p7 a param
+     * @param {boolean} p8 a param
+     * @param {class java.lang.String} p9 a param
+     * @param {boolean} p10 a param
+     * @param {boolean} p11 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFolderContent = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFolderContent', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHosts = function(callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHosts', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.copyHTMLPage = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'copyHTMLPage', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.copyLink = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'copyLink', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.moveLink = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'moveLink', arguments);
+    };
+
+    /**
+     * @param {interface com.dotmarketing.business.PermissionAPI} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.setPermissionAPI = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'setPermissionAPI', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.renameFolder = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'renameFolder', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.deleteAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'deleteAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.copyFile = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'copyFile', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.renameFile = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'renameFile', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.moveFile = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'moveFile', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.publishAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'publishAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.openHostTree = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'openHostTree', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.openFolderTree = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'openFolderTree', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.closeFolderTree = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'closeFolderTree', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {boolean} p2 a param
+     * @param {long} p3 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.openFolderContent = function(p0, p1, p2, p3, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'openFolderContent', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {class java.lang.String} p2 a param
+     * @param {class java.lang.String} p3 a param
+     * @param {class java.lang.String} p4 a param
+     * @param {class java.lang.String} p5 a param
+     * @param {class java.lang.String} p6 a param
+     * @param {class java.lang.String} p7 a param
+     * @param {class java.lang.String} p8 a param
+     * @param {class java.lang.String} p9 a param
+     * @param {class java.lang.String} p10 a param
+     * @param {class java.lang.String} p11 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.saveFileAction = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'saveFileAction', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {long} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFileInfo = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFileInfo', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.copyFolder = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'copyFolder', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.moveFolder = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'moveFolder', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.renameHTMLPage = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'renameHTMLPage', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.moveHTMLPage = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'moveHTMLPage', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.renameLink = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'renameLink', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.unPublishAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'unPublishAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.archiveAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'archiveAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.unArchiveAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'unArchiveAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.unlockAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'unlockAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.deleteHTMLPageAsset = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'deleteHTMLPageAsset', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {int} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.changeAssetMenuOrder = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'changeAssetMenuOrder', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getTreeMinInfo = function(callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getTreeMinInfo', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getTreeMinInfoByHostId = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getTreeMinInfoByHostId', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHostsByPermissions = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHostsByPermissions', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHostsWithThemes = function(callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHostsWithThemes', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHostsIncludeAll = function(callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHostsIncludeAll', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHostSubfolders = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHostSubfolders', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHostSubfoldersByPermissions = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHostSubfoldersByPermissions', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFolderSubfolders = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFolderSubfolders', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {class java.lang.String} p1 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFolderSubfoldersByPermissions = function(p0, p1, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFolderSubfoldersByPermissions', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.findHostFolder = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'findHostFolder', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getFolderMap = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getFolderMap', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getHostThemes = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getHostThemes', arguments);
+    };
+
+    /**
+     * @param {class com.dotmarketing.portlets.files.model.File} p0 a param
+     * @param {class com.dotmarketing.portlets.folders.model.Folder} p1 a param
+     * @param {class com.liferay.portal.model.User} p2 a param
+     * @param {class com.dotmarketing.beans.Host} p3 a param
+     * @param {class com.dotmarketing.portlets.folders.model.Folder} p4 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.refreshIndex = function(p0, p1, p2, p3, p4, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'refreshIndex', arguments);
+    };
+
+    /**
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getSelectedBrowserPath = function(callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getSelectedBrowserPath', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.deleteHTMLPagePreCheck = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'deleteHTMLPagePreCheck', arguments);
+    };
+
+    /**
+     * @param {class java.lang.String} p0 a param
+     * @param {function|Object} callback callback function or options object
+     */
+    p.getTree = function(p0, callback) {
+      return dwr.engine._execute(p._path, 'BrowserAjax', 'getTree', arguments);
+    };
+    
+    dwr.engine._setObject("BrowserAjax", p);
+  }
+})();
+
