@@ -1,5 +1,17 @@
 /* GLOBAL */
 
+.pos1{
+margin-top:40px;
+}
+
+.addSomeSpace{
+height:40px;
+}
+
+#compareTitle{
+font-size:2em;
+}
+
 .hideForNow, .hideNow{
     display:none;
 }
@@ -10,24 +22,28 @@
     height:80px;
 }
 
+.pensionPotSize{
+color#999!important;
+}
+
 .employerName{
     font-family: 'Roboto', sans-serif;
     font-size:1.8em;
-    color:#ff0000;
+    color:#000;
     display:block;
 }
 
 .pensionName{
     font-family: 'Roboto', sans-serif;
     font-size:1.2em;
-    color:#ff0000;
+    color:#999;
     display:block;
 }
 
 .pensionType{
     font-family: 'Roboto', sans-serif;
     font-size:1.2em;
-    color:#ff0000;
+    color:#999;
     display:block;
 }    
 
@@ -513,9 +529,7 @@ fieldset[disabled] .btn-danger.focus {
 .typeahead.dropdown-menu li.active a strong {
   color: #f6a821;
 }
-.content > div {
-  opacity: 0;
-}
+
 .pace {
   -webkit-pointer-events: none;
   pointer-events: none;
@@ -834,7 +848,7 @@ body {
 .content {
     background: #fafafa;
   margin-top: 60px;
-  margin-left: 200px;
+  margin-left: 100px;
   position: relative;
   padding: 30px;
   transition: margin-left 0.3s ease-out;
@@ -848,11 +862,7 @@ body {
   z-index: -2;
   left: 0;
   right: 0;
-  background-image: -webkit-radial-gradient(top, circle cover, #393b45 0%, #2d3038 70%);
-  background-image: -moz-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
-  background-image: -o-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
-  background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
-  background-position: 50%, 50%;
+  background:#fafafa;
 }
 .navigation {
   margin-top: 60px;
@@ -892,7 +902,7 @@ body.nav-toggle .navigation:before {
 @media (max-width: 767px) {
   .content {
     margin-left: 0;
-    padding: 30px 0 10px 0;
+    padding: 0px 0 10px 0;
   }
   .navigation {
     left: -200px;
@@ -2896,4 +2906,250 @@ fieldset[disabled] .form-control {
 }
 .bad{
     background-color:red;
+}
+/* Menu style */
+.ei_menu{
+	background:#fafafa;
+	width:100%;
+	overflow:hidden;
+}
+.ei_menu ul{
+	height:80px;
+	margin-left:0px;
+	position:relative;
+	display:inline-block; /* block */
+	width:1080px; /* 1300 */
+}
+.ei_menu ul li{
+	float:left;
+	width:75px;
+	height:95px;
+	position:relative;
+	overflow:hidden;
+	border-right:2px solid #111;
+}
+
+ul.trigger_list li:first-child{
+	border-left:2px solid #000000!important;
+}
+
+
+ul.trigger_list li:last-child{
+	border-right:0px solid #ff0000!important;
+}
+
+ul.trigger_list li:nth-child(1){
+	width:77px!important;
+}
+
+ul.trigger_list li:nth-child(2),
+ul.trigger_list li:nth-child(3){
+	width:75px!important;
+}
+
+
+
+.ei_menu ul li.infoPart{
+	width:500px!important;
+}
+
+.ei_preview{
+	width:75px;
+	height:75px;
+	cursor:pointer;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:transparent url(../images/bw.jpg) no-repeat top left;
+}
+.ei_image{
+	position:absolute;
+	left:75px;
+	top:0px;
+	width:75px;
+	height:75px;
+	opacity:0.2;
+	background:transparent url(../images/color.jpg) no-repeat top left;
+}
+/*
+.pos1 span{
+	background-position:0px 0px;
+}
+.pos2 span{
+	background-position:-75px 0px;
+}
+.pos3 span{
+	background-position:-152px 0px;
+}
+.pos4 span{
+	background-position:-227px 0px;
+}
+.pos5 span{
+	background-position:-302px 0px;
+}
+.pos6 span{
+	background-position:-377px 0px;
+}*/
+
+.ei_descr h3{
+font-size:16px!important;
+}
+.ei_descr{
+	position:absolute;
+	width:350px;
+	height:75px;
+	border-right:7px solid #f0f0f0;
+	padding:0px 20px 20px 0px;
+	left:75px;
+	top:0px;
+	background:#fff;
+}
+.ei_descr h2{
+	font-family: 'Source Sans Pro', serif;
+	font-size:20px;
+	font-weight:300;
+	color:#333;
+	padding:10px;
+	text-shadow:0px 0px 1px #fff;
+	background:#fff url(../images/stripe_light.gif) repeat top left;
+}
+.ei_descr h3{
+	font-family: 'Source Sans Pro', arial, serif;
+	color:#fff;
+	text-shadow:0px 0px 1px #000;
+	font-style:normal;
+	padding:10px;
+	background:#333;
+}
+.ei_descr p{
+	color:#000;
+	padding:10px 5px 0px 5px;
+	line-height:18px;
+	font-size:11px;
+	font-family: Arial;
+	text-transform:uppercase;
+}
+
+
+ul.trigger_list{
+	position:absolute;
+	left: 528px;
+	/* top:35px;*/
+}
+ul.trigger_list li{
+	float:left;
+	line-height:53px;
+	/*color:#ddd;*/
+}
+ul.trigger_list li a{
+	font-family: 'Source Sans Pro', arial, serif;
+	display:block;
+	background: #fafafa url(../images/stripe_light.gif);
+	/*color:#ddd;*/
+	line-height:35px;
+	padding:5px 10px;
+	margin:3px;
+	border-radius:0px;
+	text-align: center;
+}
+ul.trigger_list li a:hover{
+	background:#222;
+	color:#fff;
+text-decoration:none;
+}
+
+
+#pensionONE{
+	margin-top:50px;
+}
+
+.employerName, .pensionPotSize{
+	font-size:1.8em;
+	display:block;
+    color:#999!important;
+}
+
+.employerDetailCell{
+	width:350px;
+}
+
+
+.performance-75pc{
+	background:url("../images/return-75pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.performance-50pc{
+	background:url("../images/return-50pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.performance-25pc{
+	background:url("../images/return-25pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.risk-75pc{
+	background:url("../images/risk-75pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.risk-50pc{
+	background:url("../images/risk-50pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.risk-25pc{
+	background:url("../images/risk-25pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.costs-75pc{
+	background:url("../images/costs-75pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.costs-50pc{
+	background:url("../images/costs-50pc.png")!important;
+		background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+}
+
+.costs-25pc{
+	background:url("../images/costs-25pc.png")!important;
+	background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+    margin-top: 20px;
+	}
+
+
+.ei-image{
+	background-size:75px 75px!important;
+	background-repeat:no-repeat!important;
+
+}
+
+
+
+.companyLogo{
+	background:url("../images/logo_placeholder.png");
+	background-size: 80px 60px;
+    background-repeat: no-repeat;
+	width:80px;
+	height:60px;
 }

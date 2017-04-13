@@ -1,16 +1,72 @@
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>Pension Comparison - Dashboard</title>
+		 <!-- Vendor styles -->
+		<link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.css"/>
+		<link rel="stylesheet" href="../vendor/animate.css/animate.css"/>
+		<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" href="../vendor/toastr/toastr.min.css"/>
+
+		<!-- App styles -->
+		<link rel="stylesheet" href="../styles/pe-icons/pe-icon-7-stroke.css"/>
+		<link rel="stylesheet" href="../styles/pe-icons/helper.css"/>
+		<link rel="stylesheet" href="../styles/stroke-icons/style.css"/>
+		<link rel="stylesheet" href="../styles/style.css">
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div id="mobile-menu">
+                    <div class="left-nav-toggle">
+                        <a href="#">
+                            <i class="stroke-hamburgermenu"></i>
+                        </a>
+                    </div>
+                </div>
+                <a class="navbar-brand" href="index.html">
+                    Home
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="left-nav-toggle">
+                    <a href="">
+                        <i class="stroke-hamburgermenu"></i>
+                    </a>
+                </div>
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control" placeholder="Search data for analysis" style="width: 185px">
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="versions.html">Messages
+                            <span class="label label-warning pull-right">3</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="versions.html">Documents
+                            <span class="label label-warning pull-right">2</span>
+                        </a>
+                    </li>
+                    <li class=" profil-link">
+                        <a href="login.html">
+                            <span class="profile-address">Isabella Taylor</span>
+                            <img src="../images/profile.jpg" class="img-circle" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <title>Pension - Comparison</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="Expanding Image Menu with jQuery" />
         <meta name="keywords" content="menu, navigation, expanding, image, jquery, bw, slide out, hover, animate"/>
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 		
 		<!-- adding bootstrap-->
-		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>
+		<!--<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"/>-->
 		
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
 		<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css' />
 		
@@ -19,11 +75,11 @@
     <body>
 		<div class="container">
 			<div class="header">
-			&nbsp;
+			HEADER
 			</div>
 			<div class="addSomeSpace">&nbsp;</div>
 			<div class="content">
-				<div id="compareTitle"><span class="pensionName">Compare</span></div>
+				<div id="compareTitle"><span class="pensionName">Pension - Comparison</span></div>
 				<div id="ei_menu" class="ei_menu">
 
 	
@@ -52,7 +108,7 @@
 								<span class="performance-25pc ei_image"></span>
 							</a>
 							<div class="ei_descr">
-								<h2>[Factor +/-]</h2>
+								<h2>Returns (11%)</h2>
 								<h3>[Specific Issue/Benefit]</h3>
 								<p>
 								A wonderful serenity has taken possession of my
@@ -359,9 +415,6 @@
 				
 				
 				
-			</div>
-			<div class="footer">
-				FOOTER
 			</div>
 		</div>
 		<!-- The JavaScript -->
@@ -955,6 +1008,6 @@
 
 			});
         </script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
