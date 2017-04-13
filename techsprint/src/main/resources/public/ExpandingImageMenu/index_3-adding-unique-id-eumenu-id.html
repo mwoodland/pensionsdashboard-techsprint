@@ -454,7 +454,7 @@
 			var items = $('.ei_menu');
 			    for (var i = 0; i < items.length;  i++) {
 			    debugger;
-				var $menu				= items[i].children('ul'),
+				var $menu				= $(items[i]).children('ul'),
 					$menuItems			= $menu.children('li'),
 					$menuItemsImgWrapper= $menuItems.children('a'),
 					$menuItemsPreview	= $menuItemsImgWrapper.children('.ei_preview'),
