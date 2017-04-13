@@ -947,8 +947,8 @@ body.blank .content {
 }
 /* Various */
 a {
-  color: #505050;
-  font-size:1.2em;
+  color: #ffa500;
+  font-size:1em;
   text-decoration: none;
 }
 a:hover,
