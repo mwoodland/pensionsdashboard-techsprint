@@ -64,6 +64,7 @@ color#999!important;
   margin-bottom: 5px;
 }
 .btn-default {
+  background-color: #ffffff;
   border-color: #585d6e;
 }
 .btn.btn-w-sm {
@@ -144,7 +145,7 @@ fieldset[disabled] .btn-accent.focus {
 }
 .btn-default {
   color: #949ba2;
-  background-color: transparent;
+  background-color: #ffffff;
   border-color: #616779;
 }
 .btn-default:focus,

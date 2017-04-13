@@ -23,7 +23,7 @@
                         </a>
                     </div>
                 </div>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="ExpandingImageMenu/index_3-adding-unique-id-eumenu-id-header.html">
                     Home
                 </a>
             </div>
@@ -80,34 +80,30 @@
 			<div class="addSomeSpace">&nbsp;</div>
 			<div class="content">
 				<div id="compareTitle"><span class="pensionName">Pension - Comparison</span></div>
-				<div id="ei_header">
-					
-				<ul id="trigger_list" class="trigger_list">
-					<li><a href="#">Returns</a></li>
-					<li><a href="#">Risk</a></li>
-					<li><a href="#">Costs</a></li>
-				</ul>
+				<div id="ei_header">					
+					<ul id="trigger_list" class="trigger_list">
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Risk</a></li>
+						<li><a href="#">Costs</a></li>
+					</ul>
 				</div>
 				<div id="ei_menu" class="ei_menu">
+					<ul id="pensionONE">
+						<li class="infoPart">
+							<table  class="table">
+								<tr>
+									<td><a href="#"><div class="companyLogo"></div></a></td>
+									<td class="employerDetailCell">
+										<span class="employerName">ABC Logistics</span>
+										<span class="pensionName">The People's Pension Scheme</span>
+									</td>
+									<td><span class="pensionPotSize">&pound;903.01</span></td>
+								</tr>
+								</tbody>
+							</table>
+						</li>
 
-
-				<ul id="pensionONE">
-<li class="infoPart">
-                                    <table  class="table">
-                                        <tr>
-                                            <td><a href="#"><div class="thePeoplesPension companyLogo"></div></a></td>
-                                            <td class="employerDetailCell">
-                                                <span class="employerName">ABC Logistics</span>
-                                                <span class="pensionName">The People's Pension Scheme</span>
-                                            </td>
-                                            <td><span class="pensionPotSize">&pound;903.01</span></td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-</li>
-
-				<li>
+						<li>
 							<a href="#" class="pos1">
 								<span class="performance-25pc ei_preview"></span>
 								<span class="performance-25pc ei_image"></span>
@@ -154,8 +150,8 @@
 								<span class="costs-75pc ei_image"></span>
 							</a>
 							<div class="ei_descr">
-								<h2>The scheme / funds charges are 0.5% p.a. Typical charges are 0.75% p.a.</h2>
-								<h3>-</h3>
+								<h2>[Factor +/-]</h2>
+								<h3>[How this could effect you]</h3>
 								<p>
 								A wonderful serenity has taken possession of my
 								entire soul, like these sweet mornings of
@@ -179,7 +175,7 @@
 			<li class="infoPart">
                                     <table  class="table">
                                         <tr>
-                                            <td><a href="#"><div  class="scottishWidowsLogo companyLogo" class="companyLogo"></div></a></td>
+                                            <td><a href="#"><div class="companyLogo"></div></a></td>
                                             <td class="employerDetailCell">
                                                 <span class="employerName">Tabi Ballet School</span>
                                                 <span class="pensionName">Scottish Widows</span>
@@ -566,7 +562,7 @@
 				*/
 
 				$('#trigger_list').find('li > a').bind('click', function(e) {
-					ExpandingMenu.openItem($(this).parent().index()-1);
+					ExpandingMenu.openItem($(this).parent().index());
 					return false;
 				});
 
@@ -714,7 +710,7 @@
 				*/
 
 				$('#trigger_list').find('li > a').bind('click', function(e) {
-					ExpandingMenu.openItem($(this).parent().index()-1);
+					ExpandingMenu.openItem($(this).parent().index());
 					return false;
 				});
 
@@ -861,7 +857,7 @@
 				*/
 
 				$('#trigger_list').find('li > a').bind('click', function(e) {
-					ExpandingMenu.openItem($(this).parent().index()-1);
+					ExpandingMenu.openItem($(this).parent().index());
 					return false;
 				});
 
@@ -1007,7 +1003,7 @@
 				*/
 
 				$('#trigger_list').find('li > a').bind('click', function(e) {
-					ExpandingMenu.openItem($(this).parent().index()-1);
+					ExpandingMenu.openItem($(this).parent().index());
 					return false;
 				});
 
