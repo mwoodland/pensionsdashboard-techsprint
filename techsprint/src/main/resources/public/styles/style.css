@@ -25,11 +25,7 @@ font-size:2em;
     display:none;
 }
 
-.companyLogo{
-    background:url("../images/placeholder_logo.jpg");
-    width:120px;
-    height:80px;
-}
+
 
 .pensionPotSize{
 color#999!important;
@@ -44,8 +40,8 @@ color#999!important;
 
 .pensionName{
     font-family: 'Roboto', sans-serif;
-    font-size:1.2em;
-    color:#999;
+    font-size:1.1em;
+    color:#505050;
     display:block;
 }
 
@@ -950,7 +946,8 @@ body.blank .content {
 }
 /* Various */
 a {
-  color: #f6a821;
+  color: #505050;
+  font-size:1.2em;
   text-decoration: none;
 }
 a:hover,
@@ -3042,7 +3039,7 @@ font-size:13px!important;
 
 ul.trigger_list{
 	position:absolute;
-	left: 528px;
+	left: 498px;
 	/* top:35px;*/
 }
 ul.trigger_list li{
@@ -3075,7 +3072,7 @@ text-decoration:none;
 .employerName, .pensionPotSize{
 	font-size:1.8em;
 	display:block;
-    color:#999!important;
+    color:#505050!important;
 }
 
 .employerDetailCell{
@@ -3165,9 +3162,13 @@ height:55px;
 
 
 .companyLogo{
-	background:url("../images/logo_placeholder.png");
-	background-size: 80px 60px;
+	background:url("../images/logo_placeholder.png")no-repeat;
     background-repeat: no-repeat;
-	width:80px;
-	height:60px;
+    background-size: 80% 80%;
+	width:135px;
+	height:90px;
+	display:block;
+	z-index:9999!important;
 }
+
+
